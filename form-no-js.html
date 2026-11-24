@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact form for Henry Tiet's portfolio that works without JavaScript.">
+    <title>Contact Form (No JS) | Henry Tiet</title>
+    <link rel="icon" href="images/climber.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <nav aria-label="Main">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="form-no-js.html" aria-current="page">Form (No JS)</a></li>
+                <li><a href="form-with-js.html">Form (JS)</a></li>
+                <li><a href="experiments.html">Experiments</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Contact Form</h1>
+        <p>Send me a note. This form uses only HTML and CSS, and it posts to a testing endpoint that echoes back what you sent.</p>
+
+        <form class="contact-form" action="https://httpbin.org/post" method="post">
+            <input type="hidden" name="possible_bot" value="true">
+
+            <p class="hint">Please fill out all fields.</p>
+
+            <div class="field">
+                <label for="name">Name (required)</label>
+                <p class="hint" id="name-hint">100 characters maximum.</p>
+                <input type="text" id="name" name="name" autocomplete="name" required minlength="1" maxlength="100" aria-describedby="name-hint">
+            </div>
+
+            <div class="field">
+                <label for="email">Email (required)</label>
+                <p class="hint" id="email-hint">For example, name@domain.com.</p>
+                <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="email-hint">
+            </div>
+
+            <div class="field">
+                <label for="comments">Comments (required)</label>
+                <p class="hint" id="comments-hint">What's up? At least 10 characters. 1,000 characters maximum, don't talk <i>too</i> much.</p>
+                <textarea id="comments" name="comments" rows="6" required minlength="10" maxlength="1000" aria-describedby="comments-hint"></textarea>
+            </div>
+
+            <button type="submit">Send message</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Henry Tiet</p>
+    </footer>
+</body>
+</html>
