@@ -32,6 +32,9 @@ class FactPanel extends HTMLElement {
 
     // Piece 3: build the interface when the element is added to the page.
     connectedCallback() {
+        // Part 3: remove the no-JavaScript fallback written in the HTML.
+        this.replaceChildren();
+
         // Heading
         const heading = document.createElement("h2");
         heading.id = "fact-panel-heading"; // the page's <section> points to this

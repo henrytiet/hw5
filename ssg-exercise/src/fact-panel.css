@@ -1,0 +1,64 @@
+/*
+  fact-panel.css: styles for the <fact-panel> Web Component (HW5 Part 3).
+
+  Every color is read from a --fact-panel-* custom property, and each var()
+  has a fallback, so the panel still looks right on a page that sets none of
+  them. index.css sets these properties from the site's theme variables.
+*/
+
+fact-panel {
+  display: block;
+  color: var(--fact-panel-text, #2f3437);
+  background-color: var(--fact-panel-background, #ffffff);
+  border: 3px solid var(--fact-panel-accent, #17707a);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+
+fact-panel h2 {
+  color: var(--fact-panel-accent, #17707a);
+}
+
+/* The current fact sits in a shaded box so it stands out. */
+fact-panel .fact-text {
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+  font-size: 1.15rem;
+  background-color: var(--fact-panel-shade, #e3f3fb);
+  border-left: 0.5rem solid var(--fact-panel-highlight, #d2601a);
+  border-radius: 0.4rem;
+}
+
+/* Source and permalink (hidden in compact mode). */
+fact-panel .fact-details {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+fact-panel .fact-details p {
+  margin: 0;
+  font-style: italic;
+}
+
+/* Space between the three buttons; they wrap on narrow screens. */
+fact-panel button {
+  margin: 0 0.5rem 0.5rem 0;
+}
+
+/* Status line under the buttons. */
+fact-panel [role="status"] {
+  margin: 0.5rem 0 0;
+  padding: 0.4rem 0.75rem;
+  border-left: 0.35rem solid var(--fact-panel-accent, #17707a);
+}
+
+fact-panel [role="status"][data-state="loading"] {
+  font-style: italic;
+}
+
+/* Errors use bold text AND a color, so color is not the only cue. */
+fact-panel [role="status"][data-state="error"] {
+  font-weight: 700;
+  color: var(--fact-panel-error, #b3261e);
+  border-left-color: var(--fact-panel-error, #b3261e);
+}

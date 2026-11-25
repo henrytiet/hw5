@@ -1,0 +1,41 @@
+{#
+  base.njk: the layout both pages use. Each page fills in {{ content }}
+  and sets title, description, and current in its front matter.
+  Home also lists its extra stylesheets and scripts.
+#}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ description }}">
+    <meta name="author" content="Henry Tiet">
+    <title>{{ title }}</title>
+    <link rel="icon" href="images/climber.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="index.css">
+    {%- for sheet in stylesheets %}
+    <link rel="stylesheet" href="{{ sheet }}">
+    {%- endfor %}
+    <script src="theme.js"></script>
+    {%- for script in scripts %}
+    <script src="{{ script }}" defer></script>
+    {%- endfor %}
+</head>
+<body>
+    <header id="top">
+        <nav aria-label="Main">
+            <ul>
+                <li><a href="index.html"{% if current == "home" %} aria-current="page"{% endif %}>Home</a></li>
+                <li><a href="resume.html"{% if current == "resume" %} aria-current="page"{% endif %}>Resume</a></li>
+            </ul>
+        </nav>
+        <button type="button" id="theme-toggle" hidden>Switch to dark theme</button>
+    </header>
+
+    <main>
+{{ content | safe }}
+    </main>
+
+    {% include "footer.njk" %}
+</body>
+</html>

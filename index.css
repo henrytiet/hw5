@@ -172,6 +172,19 @@ climb-hold {
   margin-bottom: calc(var(--space) * 1.5);
 }
 
+/* ===== <fact-panel> Web Component (HW5) =====
+   Pass the site's theme colors to the component. fact-panel.css reads these
+   (with fallbacks). Because they use the theme variables above, the panel
+   switches with the light/dark theme without any extra rules. */
+fact-panel {
+  --fact-panel-background: var(--color-card);
+  --fact-panel-text: var(--color-wall);
+  --fact-panel-accent: var(--color-rope);
+  --fact-panel-highlight: var(--color-hold);
+  --fact-panel-shade: var(--color-sky);
+  --fact-panel-error: var(--color-error);
+}
+
 section {
   margin-bottom: calc(var(--space) * 2);
 }

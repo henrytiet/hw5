@@ -8,6 +8,7 @@
     <title>Henry Tiet | Portfolio</title>
     <link rel="icon" href="images/climber.svg" type="image/svg+xml">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="fact-panel.css">
     <script src="theme.js"></script>
     <script src="js/hello-world.js" defer></script>
     <script src="js/fact-panel.js" defer></script>
@@ -156,7 +157,13 @@
             <p>
                 <button type="button" id="fact-compact-toggle" hidden>Hide details</button>
             </p>
-            <fact-panel></fact-panel>
+            <fact-panel>
+                <!-- Fallback without JavaScript; fact-panel.js replaces it -->
+                <h2 id="fact-panel-heading">Random Fact</h2>
+                <noscript>
+                    <p>Enable JavaScript to load live data for this widget.</p>
+                </noscript>
+            </fact-panel>
         </section>
     </main>
 
